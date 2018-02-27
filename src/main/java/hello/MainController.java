@@ -21,18 +21,6 @@ public class MainController {
 		return "form";
 	}
 
-	// @RequestMapping(value="/hello", method=RequestMethod.POST)
-	// public String hello(HttpServletRequest request, Model model) {
-	// String name=request.getParameter("name");
-	// String email=request.getParameter("email");
-	//
-	//
-	// model.addAttribute("name", name);
-	// model.addAttribute("email", email);
-	//
-	// return "hello";
-	// }
-
 	@RequestMapping(path = "/all", method = RequestMethod.GET)
 	public String getAllUsers(Model model) {
 		model.addAttribute("users", userRepository.findAll());
