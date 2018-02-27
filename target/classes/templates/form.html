@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Create new User</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<div id="add_container">
+		<form id="form" method="post" action="/demo/create">
+		<h4>Dodaj nowego użytkownika</h4>
+			<input type="text" name="name" placeholder="Nazwa"></input><br />
+			<input type="text" name="email" placeholder="E-mail"></input><br />
+			<br/><button type="submit" class="add_button">Prześlij dane</button>
+		</form>
+	</div>
+
+</body>
+</html>

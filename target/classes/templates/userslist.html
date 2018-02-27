@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>List of users</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/fontello.css}" />
+</head>
+
+<body>
+	<div id="container">
+		<h4>Lista wszystkich użytkowników</h4>
+		<table id="table">
+			<tr>
+				<th>ID</th>
+				<th>Imię</th>
+				<th>Email</th>
+				<th>Usuń</th>
+				<th>Edytuj</th>
+			</tr>
+			<tr data-th-each="user : ${users}">
+				<td data-th-text="${user.id}">#</td>
+				<td data-th-text="${user.name}">Imię</td>
+				<td data-th-text="${user.email}">Email</td>
+				<td>
+					<form method="post" action="/demo/delete">
+						<input type="hidden" id="user_id" name="user_id"
+							th:value="${user.id}"></input>
+						<button id="delete_button">Usuń</button>
+					</form>
+				</td>
+				<td><a th:href="@{'/demo/edit/{id}'(id=${user.id})}">
+						<button id="edit_button">Edytuj</button>
+				</a></td>
+			</tr>
+		</table>
+
+		<div id="button_div">
+			<a th:href="@{'/demo/create'}">
+				<button class="add_button">Dodaj nowego użytkownika</button>
+			</a>
+		</div>
+		
+	</div>
+</body>
+</html>
